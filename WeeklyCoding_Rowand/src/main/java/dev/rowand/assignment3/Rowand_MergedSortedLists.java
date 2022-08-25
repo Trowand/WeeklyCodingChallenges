@@ -11,20 +11,28 @@ public class Rowand_MergedSortedLists {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the length of the array of linked lists.");
 		int len = scan.nextInt();
-		LinkedList[] list = new LinkedList[len];
-		for(int x = 0; x < len; x++) {
-			list[x] = new LinkedList();
-			System.out.println("Enter another value for linked list " + (x+1) + ". Enter -1 to stop.");
-			int input = scan.nextInt();
-			while(input != -1) {
-				list[x].add(input);
-				System.out.println("Enter another value for linked list " + (x+1) + ". Enter -1 to stop.");
-				input = scan.nextInt();
-			}
-			Collections.sort(list[x]);
+		if(len <= 0 ) {
+			System.out.println("[]");
 		}
-		
-		
+		else {
+			LinkedList ender = new LinkedList();
+			LinkedList[] list = new LinkedList[len];
+			for(int x = 0; x < len; x++) {
+				list[x] = new LinkedList();
+				System.out.println("Enter another value for linked list " + (x+1) + ". Enter -1 to stop.");
+				int input = scan.nextInt();
+				while(input != -1) {
+					list[x].add(input);
+					System.out.println("Enter another value for linked list " + (x+1) + ". Enter -1 to stop.");
+					input = scan.nextInt();
+				}
+				Collections.sort(list[x]);
+				ender.addAll(list[x]);
+				
+			}
+			Collections.sort(ender);
+			System.out.println(ender);
+		}
 		
 	}
 
