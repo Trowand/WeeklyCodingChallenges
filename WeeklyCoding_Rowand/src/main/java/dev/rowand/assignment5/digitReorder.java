@@ -9,7 +9,7 @@ public class digitReorder {
 		for(int x = 0; x < A.length; x++) {
 			if(A[x] >= 10) { //make sure the element is equal to or bigger then 10
 				String numword = Integer.toString(A[x]);
-				int[] numhold = new int[numword.length()-1];
+			    Integer[] numhold = new Integer[numword.length()];
 				for(int y = 0; y < numword.length(); y++) {
 					String digit = String.valueOf(numword.charAt(y));
 					numhold[y] = Integer.parseInt(digit);
@@ -18,8 +18,8 @@ public class digitReorder {
 					Arrays.sort(numhold);
 				}
 				else if (order.equals("desc")) {
-					Arrays.sort(numhold);
-					Collections.reverse(Arrays.asList(numhold));
+					Arrays.sort(numhold, Collections.reverseOrder());
+					//Collections.reverse(Arrays.asList(numhold));
 				}
 				StringBuilder num = new StringBuilder();
 				for(int a = 0; a < numhold.length; a++) {
@@ -44,10 +44,10 @@ public class digitReorder {
 			int num = scan.nextInt();
 			array[x] = num;
 		}
-		System.out.println("Do you want the digets to be ordered in asc or desc order? (enter either asc or desc) ");
+		System.out.println("Do you want the digits to be ordered in asc or desc order? (enter either asc or desc) ");
 		String sort = scan.next();
 		reorderDigits(array, sort);
-		System.out.println(array);
+		System.out.println(Arrays.toString(array));
 		
 	}
 
